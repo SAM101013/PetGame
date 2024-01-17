@@ -43,11 +43,15 @@ performAction(action) {
     }
 }
 
+// Initial start message
+document.querySelector('h1').innerHTML = 'Pick A pet to Play with';
+document.querySelector('h4').innerHTML = "Be careful not to overfeed the pets!!";
+
 const pets = {
-    dino1: new Pet('Dino 1', 'images/dino1.png'),//including my example images in file
-    dino2: new Pet('Dino 2', 'images/dino2.png'),
-    dino3: new Pet('Dino 3', 'images/dino3.png'),
-    dino4: new Pet('Dino 4', 'images/dino4.png'),
+    dino1: new Pet('Dino 1', 'images/dino1.gif'),//including my example images in file
+    dino2: new Pet('Dino 2', 'images/dino2.gif'),
+    dino3: new Pet('Dino 3', 'images/dino3.gif'),
+    dino4: new Pet('Dino 4', 'images/dino4.gif'),
 };
 
 // Select the elements
