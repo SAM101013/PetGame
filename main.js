@@ -66,6 +66,8 @@ class Pet {
     const selectedPetKey = petDropdown.value || randomPetKey; // Use random key if dropdown not set
     healthStatus.textContent = `${pets[selectedPetKey].name} Pet's Health: ${pets[selectedPetKey].energy}`;
   }
+
+  
   
   // Handle action button clicks
   function performAction(action) {
