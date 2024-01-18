@@ -1,49 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Dino Pet Game</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Animal Insycn </title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+  </style>
 </head>
- 
+
 <body>
-    <div class="navbar">
-        <h1>Dino Pet Game</h1>
-    </div>
- 
-    <div id="game-container">
-    <!-- Pet image with corresponding IDs -->
- 
-  <img id="selected-pet" class="pet-image" src="" alt="Selected Pet">
-  <div id="pet-options">
+  <div class="navbar">
+    <h1>Animal Insync</h1>
+    <div id="health-status">Choose a pet to see their health!</div> 
+
+</div>
+
+  <div id="game-container">
+  <img id="selected-pet" class="pet-image" src="./images/dino2.gif" alt="Selected Pet">
+
+    <div id="pet-options">
       <label for="pet-dropdown">Pick a pet:</label>
       <select id="pet-dropdown">
-          <option value="dino1">Dino 1</option>
-          <option value="dino2">Dino 2</option>
-          <option value="dino3">Dino 3</option>
-          <option value="dino4">Dino 4</option>
- 
- 
- 
- 
+        <option value="dino1">Dino 1</option>
+        <option value="dino2">Dino 2</option>
+        <option value="dino3">Dino 3</option>
+        <option value="dino4">Dino 4</option>
       </select>
-        <!-- Action buttons -->
-        <div id="action-buttons">
-            <div id="action-buttons">
-            <button class="action-button" onclick="performAction('play')">Play</button>
-            <button class="action-button" onclick="performAction('poop')">Poop</button>
-            <button class="action-button" onclick="performAction('drink')">Drink</button>
-            <button class="action-button" onclick="performAction('sleep')">Sleep</button>
-            <button class="action-button" onclick="performAction('warm up')">Warm Up</button>
-            <button class="action-button" onclick="performAction('feed')">Feed</button>
- 
-<!-- Health status will be displayed here -->
-        </div>
     </div>
- 
-    <script defer src="main.js"></script>
+
+    <div id="action-buttons">
+      <button class="action-button" onclick="performAction('play')">Play</button>
+      <button class="action-button" onclick="performAction('poop')">Poop</button>
+      <button class="action-button" onclick="performAction('drink')">Drink</button>
+      <button class="action-button" onclick="performAction('sleep')">Sleep</button>
+      <button class="action-button" onclick="performAction('warmUp')">Warm Up</button>
+      <button class="action-button" onclick="performAction('feed')">Feed</button>
+    </div>
+  </div>
+
+  <script defer src="main.js"></script>
 </body>
- 
+
 </html>
