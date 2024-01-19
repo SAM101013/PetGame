@@ -1,3 +1,4 @@
+
 class Pet {
     constructor(name, image) {
         this.name = name;
@@ -20,13 +21,13 @@ class Pet {
         if (actionImages[action]) {
             document.getElementById("selected-pet").src = actionImages[action];
             
-            // Reset image after 3 seconds
+            // reset image after 3 seconds
             setTimeout(() => {
                 document.getElementById("selected-pet").src = this.image;
             }, 3000);
         }
 
-        // Handle energy changes based on the action
+        // health changes based on the action
         switch (action) {
             case 'play':
                 this.energy -= 40;
@@ -69,11 +70,11 @@ petDropdown.addEventListener('change', function () {
     const selectedPetKey = this.value;
     const selectedPetImage = document.getElementById('selected-pet');
 
-    // Set the placeholder image for 5 seconds
-    const placeholderImagePath = 'images/egghatch.gif'; // Replace with your desired placeholder image
+    // image for 5 seconds timeout
+    const placeholderImagePath = 'images/egghatch.gif'; 
     selectedPetImage.src = placeholderImagePath;
 
-    // Timeout to update the selected pet image and health status after 5 seconds
+    // update the selected pet image and health status after 5 second timeout
     setTimeout(() => {
         selectedPetImage.src = pets[selectedPetKey].image;
         updateHealthStatus();
@@ -95,11 +96,11 @@ function changePet() {
     const selectedPet = document.getElementById("pet-dropdown").value;
     const selectedPetImage = document.getElementById("selected-pet");
 
-    // Set a placeholder image for 5 seconds
-    const placeholderImagePath = "images/egghatch.gif"; // Replace with your desired placeholder image
+    // image selected for timeout
+    const placeholderImagePath = "images/egghatch.gif"; 
     selectedPetImage.src = placeholderImagePath;
 
-    // Timeout to update the selected pet image after 5 seconds
+    // 5 seconds timeout after selecting pet
     setTimeout(() => {
         let imagePath;
 
@@ -112,9 +113,7 @@ function changePet() {
         } else if (selectedPet === "dino4") {
             imagePath = "images/pcock1.gif";
         }
-
-        // Update the source of the pet image
         selectedPetImage.src = imagePath;
-        updateHealthStatus(); // Optionally, update the health status here as well
+        updateHealthStatus();
     }, 5000);
 }
