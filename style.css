@@ -1,15 +1,16 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Gamja Flower', sans-serif;
-    background-image: url("scene.png");
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url("/images/scene.png");
     background-size: cover;
     background-repeat: no-repeat; 
+    /* overflow: hidden; */
 }
 
 .navbar {
     text-align: center;
-    background-color: #1a4027;
+    background-color: black;
     /* padding: 5px; */
     font-family: 'Gamja Flower', sans-serif;
 }
@@ -17,8 +18,9 @@ body {
 h1 {
     padding: 30px;
 }
+
 .navbar h1 {
-    color: rgb(203, 23, 23);
+    color: yellow;
     font-family: 'Gamja Flower', sans-serif;
     font-size: 65px;
 }
@@ -42,51 +44,54 @@ h1 {
     height: 300px; /* Set height*/
     animation: jump 1s ease-in-out forwards; /* Play jump animation for 1 second */
     animation-delay: 0.5s; /* Start jump animation after 0.5 seconds */
-
+    
 }
 
 @keyframes jump {
-0% {
-    transform: translateY(0px);
-}
-50% {
-    transform: translateY(-50px);
-}
-100% {
-    transform: translateY(0px);
-}
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 @keyframes roll {
-0% {
-    transform: rotateZ(0deg);
-}
-50% {
-    transform: rotateZ(360deg);
-}
-100% {
-    transform: rotateZ(0deg);
-}
+    0% {
+        transform: rotateZ(0deg);
+    }
+    50% {
+        transform: rotateZ(360deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
 }
 
 
 #pet-options,
 #action-buttons {
+    color: white;
     text-align: center;
     /* margin-bottom: 20px; */
+    background-color: rgba(0, 0, 0, 0.562);
 }
 
 .action-button {
     margin: 5px;
     cursor: pointer;
     border-radius: 10px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: yellow;
+    color: black;
+    font-weight: bolder;
     padding: 10px 20px;
 }
 
 #health-status {
-
+    text-shadow: 0 5px 5px  black;
     font-size: 40px;
     font-weight: bold;
     color: red; /* Make the health message red */
