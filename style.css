@@ -1,99 +1,188 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Gamja Flower', sans-serif;
-    background-image: url("scene.png");
-    background-size: cover;
-    background-repeat: no-repeat; 
+  margin: 0;
+  padding: 0;
+  font-family: 'Finger Paint', sans-serif;
+  background-image: url("images/scene.gif");
+  background-size: cover;
+  background-repeat: no-repeat; 
+  /* overflow: hidden; */
+}
 
-  }
-  
-  .navbar {
-    background-color: #1a4027;
-    padding: 10px;
-    text-align: center;
-    font-family: 'Gamja Flower', sans-serif;
-  }
-  
-  .navbar h1 {
-    color: rgb(203, 23, 23);
-    font-family: 'Gamja Flower', sans-serif;
-    font-size: 56px;
-  }
-  
-  #game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    position: relative;
-    /* background-image: ; */
-  }
-  
-  .pet-image {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-    width: 150px; /* Set width*/
-    height: 150px; /* Set height*/
-    animation: jump 1s ease-in-out forwards; /* Play jump animation for 1 second */
-    animation-delay: 0.5s; /* Start jump animation after 0.5 seconds */
+.navbar {
+  align-items: start;
+  background-color: rgb(246, 179, 78);
+  /* padding: 5px; */
+  font-family: 'Finger Paint', sans-serif;
+  font-size: 22px;
+  color: #74f230;
+  text-decoration: #74f230;
+}
 
-  }
+#restart-message{
+ color: #f60808;
+ align-items: baseline;
 
-  @keyframes jump {
-    0% {
+}
+
+#health-bar-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  z-index: 1000;
+}
+
+#health-bar {
+  width: 200px;
+  height: 20px;
+  border: 3px solid #f24030;
+  position: relative;
+  background-color: #98cc30; /* Set background color as needed */
+}
+
+#health-status {
+  height: 100%;
+  background-color: #e5cd1600;
+  color: #f60808;
+  font-size: 20px;
+}
+
+.popup{
+  display: flex;
+  position:absolute;
+  align-items:cover;
+  width:50%;
+  height: 50%;
+
+}
+
+
+h1 {
+  padding: 30px;
+  align-items: center;
+  text-align:center;
+  font-size: 40px;
+}
+
+.navbar h1 {
+  color: yellow;
+  font-family: 'Gamja Flower', sans-serif;
+  font-size: 35px;
+}
+
+#game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* height: 100vh; */
+  position: relative;
+  /* background-image: ; */
+}
+
+.pet-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+  padding: 30px;
+  width: 300px; /* Set width*/
+  height: 300px; /* Set height*/
+  animation: jump 1s ease-in-out forwards; /* Play jump animation for 1 second */
+  animation-delay: 0.5s; /* Start jump animation after 0.5 seconds */
+  
+}
+
+@keyframes jump {
+  0% {
       transform: translateY(0px);
-    }
-    50% {
+  }
+  50% {
       transform: translateY(-50px);
-    }
-    100% {
+  }
+  100% {
       transform: translateY(0px);
-    }
   }
-  
-  @keyframes roll {
-    0% {
+}
+
+@keyframes roll {
+  0% {
       transform: rotateZ(0deg);
-    }
-    50% {
+  }
+  50% {
       transform: rotateZ(360deg);
-    }
-    100% {
+  }
+  100% {
       transform: rotateZ(0deg);
-    }
   }
-  
-  
-  #pet-options,
-  #action-buttons {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .action-button {
-    margin: 5px;
-    cursor: pointer;
-    border-radius: 10px;
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-  }
-  
-  #health-status {
-    font-size: 40px;
-    font-weight: bold;
-    color: red; /* Make the health message red */
-    margin-bottom: 20px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-  
-  /* Style for action buttons */
-  .action-button {
-    margin: 5px;
-  }
-  
+}
+
+
+#pet-options,
+#action-buttons {
+  color: white;
+  text-align: center;
+  /* margin-bottom: 20px; */
+  background-color: rgba(0, 0, 0, 0.562);
+}
+
+.action-button {
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: rgba(174, 255, 54, 0.903);
+  color: rgb(15, 15, 15);
+  font-weight: bolder;
+  padding: 10px 20px;
+}
+
+#health-stats {
+  text-shadow: 0 5px 5px  rgb(245, 242, 242);
+  align-items:end;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(225, 255, 0); /* Make the health message red */
+  margin-top: 0;
+  position: relative;
+  background-color: none;
+}
+
+/* Style for action buttons */
+.action-button {
+  margin: 5px;
+}
+
+
+.game-end-image{
+  display: flex;
+  position:absolute;
+  align-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(246, 246, 246, 0);
+}
+
+
+
+#start-popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(55, 225, 46, 0.8);
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1001; 
+} 
+
+#start-popup p {
+  font-size: 24px;
+  font-family: 'Nabla', system-ui;
+  font-family: 'Finger Paint', sans-serif;
+  text-align: center;
+  margin: 0;
+}
+

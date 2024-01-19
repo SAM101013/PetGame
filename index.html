@@ -1,48 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Animal Insycn </title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
+</style>
+<style>
+  .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0);
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Animal Insycn </title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
-  </style>
+  .game-end-image {
+      max-width: 100%;
+      max-height: 100%;
+  }
+</style>
 </head>
 
 <body>
-  <div class="navbar">
-    <h1>Animal Insync</h1>
-    <div id="health-status">Choose a pet to see their health!</div> 
-
+  <div id="navbar-container">
+    <div class="navbar">
+      <ul>
+        <li><a href="Index.html">Home</a></li>
+        <li><a href="Home.html">About</a></li>
+        
+  
+    </ul>
 </div>
+<div id="health-bar-container">
+  <div id="health-bar">
+      <div id="health-stats"></div>
+  </div>
+</div>
+<h1>Animal Insync</h1>
 
-  <div id="game-container">
-  <img id="selected-pet" class="pet-image" src="./images/dino2.gif" alt="Selected Pet">
+
+<div id="game-container">
+    
+    <div id="health-status">Choose a pet to see their health!</div> 
+<img id="selected-pet" class="pet-image" src="images/eggwarm.gif" alt="Selected Pet">
 
     <div id="pet-options">
-      <label for="pet-dropdown">Pick a pet:</label>
-      <select id="pet-dropdown">
-        <option value="dino1">Dino 1</option>
-        <option value="dino2">Dino 2</option>
-        <option value="dino3">Dino 3</option>
-        <option value="dino4">Dino 4</option>
-      </select>
-    </div>
+    <label for="pet-dropdown">Pick a pet:</label>
 
-    <div id="action-buttons">
-      <button class="action-button" onclick="performAction('play')">Play</button>
-      <button class="action-button" onclick="performAction('poop')">Poop</button>
-      <button class="action-button" onclick="performAction('drink')">Drink</button>
-      <button class="action-button" onclick="performAction('sleep')">Sleep</button>
-      <button class="action-button" onclick="performAction('warmUp')">Warm Up</button>
-      <button class="action-button" onclick="performAction('feed')">Feed</button>
-    </div>
-  </div>
+<select id="pet-dropdown" onchange="changePet()">
+    <option value="" disabled selected>Select a pet</option>
+    <option value="dino1">Dino 1</option>
+    <option value="dino2">Dino 2</option>
+    <option value="dino3">Dino 3</option>
+    <option value="dino4">Dino 4</option>
 
-  <script defer src="main.js"></script>
+    
+</select>
+
+        <!-- Action buttons -->
+        <div id="action-buttons">
+            <div id="action-buttons">
+            <button class="action-button" onclick="performAction('feed')">Feed</button>
+            <button class="action-button" onclick="performAction('drink')">Drink</button>
+            <button class="action-button" onclick="performAction('play')">Play</button>
+            <button class="action-button" onclick="performAction('poop')">Poop</button>
+            <button class="action-button" onclick="performAction('sleep')">Sleep</button>
+            <!-- <button class="action-button" onclick="performAction('warm up')">Warm Up</button> -->
+
+<!-- Health status will be displayed here -->
+        </div>
+    </div>
+</div>
+
+    <script defer src="main.js"></script>
 </body>
 
 </html>
-<!-- //updatedimages -->
