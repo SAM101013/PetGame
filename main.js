@@ -1,9 +1,10 @@
 
 class Pet {
-    constructor(name, image) {
+    constructor(name, image, actionImages) {
         this.name = name;
         this.energy = 20;
         this.image = image;
+        this.actionImages = actionImages || {};
     }
 
     respondToClick() {
@@ -11,24 +12,20 @@ class Pet {
     }
 
     performAction(action) {
-        const actionImages = {
-            feed: "images/dino1.1.gif",
-            drink: "images/dino1.1.gif",
-            sleep: "images/dino1.3.gif",
-            play: "images/dino1.2.gif",
-        };
+        const imageElement = document.getElementById("selected-pet");
 
-        if (actionImages[action]) {
-            document.getElementById("selected-pet").src = actionImages[action];
-            
+        if (this.actionImages[action]) {
+            imageElement.src = this.actionImages[action];
+
             // reset image after 3 seconds
             setTimeout(() => {
-                document.getElementById("selected-pet").src = this.image;
-            }, 3000);
+                imageElement.src = this.image;
+            }, 4500);
         }
 
         // health changes based on the action
-        switch (action) {
+        switch (action.toLowerCase()) {
+            // Convert action to lowercase for case-insensitive comparison
             case 'play':
                 this.energy -= 40;
                 break;
@@ -41,7 +38,7 @@ class Pet {
             case 'sleep':
                 this.energy += 25;
                 break;
-            case 'warmUp':
+            case 'warmup':
             case 'feed':
                 this.energy += 30;
                 break;
@@ -55,32 +52,53 @@ class Pet {
 }
 
 const pets = {
-    dino1: new Pet('Dino 1', 'images/dino1.gif'),
-    dino2: new Pet('Dino 2', 'images/star1.gif'),
-    dino3: new Pet('Dino 3', 'images/brac1.gif'),
-    dino4: new Pet('Dino 4', 'images/pcock1.gif'),
+    dino1: new Pet('Dino 1', 'images/dino1.gif', {
+        feed: "images/dino1.1.gif",
+        drink: "images/dino1.1.gif",
+        sleep: "images/dino1.3.gif",
+        play: "images/dino1.2.gif",
+        poop: "images/dino1.4.gif"
+    }),
+    dino2: new Pet('Dino 2', 'images/star1.gif', {
+        feed: "images/starfeed.gif",
+        drink: "images/starfeed.gif",
+        sleep: "images/starsleep.gif",
+        play: "images/starplay.gif",
+        poop: "images/starpoop.gif"
+    }),
+    dino3: new Pet('Dino 3', 'images/brac1.gif', {
+        feed: "images/bracfeed.gif",
+        drink: "images/bracfeed.gif",
+        sleep: "images/bracsleep.gif",
+        play: "images/bracplay.gif",
+        poop: "images/bracpoop.gif"
+    }),
+    dino4: new Pet('Dino 4', 'images/pcock1.gif', {
+        feed: "images/pcockfeed.gif",
+        drink: "images/pcockfeed.gif",
+        sleep: "images/pcocksleep.gif",
+        play: "images/pcockplay.gif",
+        poop: "images/pcockpoop.gif"
+    }),
 };
-
 
 const petDropdown = document.getElementById('pet-dropdown');
 const selectedPetImage = document.getElementById('selected-pet');
 const healthStatus = document.getElementById('health-status');
 
-petDropdown.addEventListener('change', function () {
+petDropdown.addEventListener('change', function() {
     const selectedPetKey = this.value;
-    const selectedPetImage = document.getElementById('selected-pet');
+    const placeholderImagePath = 'images/egghatch.gif'; 
 
     // image for 5 seconds timeout
-    const placeholderImagePath = 'images/egghatch.gif'; 
     selectedPetImage.src = placeholderImagePath;
 
-    // update the selected pet image and health status after 5 second timeout
+    // update the selected pet image and health status after a 5-second timeout
     setTimeout(() => {
         selectedPetImage.src = pets[selectedPetKey].image;
         updateHealthStatus();
     }, 5000);
 });
-
 
 function updateHealthStatus() {
     const selectedPetKey = petDropdown.value || randomPetKey;
@@ -92,12 +110,12 @@ function performAction(action) {
     pets[selectedPetKey].performAction(action);
     updateHealthStatus();
 }
+
 function changePet() {
     const selectedPet = document.getElementById("pet-dropdown").value;
-    const selectedPetImage = document.getElementById("selected-pet");
+    const placeholderImagePath = "images/egghatch.gif"; 
 
     // image selected for timeout
-    const placeholderImagePath = "images/egghatch.gif"; 
     selectedPetImage.src = placeholderImagePath;
 
     // 5 seconds timeout after selecting pet
