@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="style.css">
 <title>Animal Insycn </title>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+    @import url('https://fonts.google.com/specimen/Pixelify+Sans?preview.text=something%20a&query=pixel');
 </style>
 </head>
 
@@ -13,12 +13,11 @@
 </div>
 
 <div id="game-container">
-    <!-- Pet image with corresponding IDs -->
     
     <div id="health-status">Choose a pet to see their health!</div> 
 <img id="selected-pet" class="pet-image" src="images/eggwarm.gif" alt="Selected Pet">
 
-<div id="pet-options">
+    <div id="pet-options">
     <label for="pet-dropdown">Pick a pet:</label>
 
 <select id="pet-dropdown" onchange="changePet()">
@@ -39,7 +38,7 @@
             <button class="action-button" onclick="performAction('play')">Play</button>
             <button class="action-button" onclick="performAction('poop')">Poop</button>
             <button class="action-button" onclick="performAction('sleep')">Sleep</button>
-            <button class="action-button" onclick="performAction('warm up')">Warm Up</button>
+            <!-- <button class="action-button" onclick="performAction('warm up')">Warm Up</button> -->
 
 <!-- Health status will be displayed here -->
         </div>
