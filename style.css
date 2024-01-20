@@ -1,27 +1,57 @@
 body {
+  display:flexbox;
   margin: 0;
   padding: 0;
   font-family: 'Finger Paint', sans-serif;
-  background-image: url("images/scene.gif");
-  background-size: cover;
-  background-repeat: no-repeat; 
+  background-image: url("6.png");
+  background-size:cover;
+  background-repeat: no-repeat;
   /* overflow: hidden; */
+}
+#navbar-container {
+  background-color: #1f1c1946; /* Set the background color of the navbar container */
 }
 
 .navbar {
+  padding: 10px; /* Add padding to the navbar */
+}
+
+ul {
+  list-style-type: none; /* Remove default list styling */
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  margin-right: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold; 
+  padding: 10px 20px; /* Add padding to create button-like appearance */
+  border-radius: 5px; /* Add border-radius for rounded corners */
+  background-color: #ff6600; /* Set the background color of the button */
+  transition: background-color 0.3s; /* Add smooth transition for hover effect */
+}
+
+a:hover {
+  background-color: #0056b3; /* Change background color on hover */
+}
+This example assumes a button
+
+.navbar {
   align-items: start;
-  background-color: rgb(246, 179, 78);
+  background-color: rgb(223, 126, 0);
   /* padding: 5px; */
   font-family: 'Finger Paint', sans-serif;
   font-size: 22px;
-  color: #74f230;
-  text-decoration: #74f230;
-}
-
-#restart-message{
- color: #f60808;
- align-items: baseline;
-
+  border: #f60808;
+  border-radius: 10px;
+  color: #090909;
+  text-decoration: #fe6703;
 }
 
 #health-bar-container {
@@ -30,21 +60,54 @@ body {
   right: 0;
   padding: 10px;
   z-index: 1000;
+  color: #ffffff;
+  font-size: 24px;
+  text-decoration: dotted;
 }
 
 #health-bar {
   width: 200px;
   height: 20px;
-  border: 3px solid #f24030;
+  border: 3px solid #ff7409;
+  border-radius: 2px;
   position: relative;
   background-color: #98cc30; /* Set background color as needed */
 }
 
 #health-status {
   height: 100%;
-  background-color: #e5cd1600;
-  color: #f60808;
+  background-color: #fd6a0e00;
+  color: #f65308;
   font-size: 20px;
+}
+
+/* #xp-bar-container {
+  width: 200px;
+  height: 20px;
+  border: 3px solid #ff0998;
+  padding-block:unset;
+  border-radius: 3px;
+  position: relative;
+  background-color: #98cc30; /* Set background color as needed */
+/* }
+
+#xp-bar {
+  height: 15px; /* Height of the XP bar */
+  /* background-color: #dde90b00;
+  width: 0; 
+  position:relative;
+  top: 15px;
+  right: 80%;
+  padding: 10px;
+  z-index: 1000;
+  font-size: 14px;
+  text-decoration: dotted;
+} */ 
+
+
+#xp-text {
+  text-align: center; /* Center-align the XP text */
+  margin-top: 5px; /* Add some top margin to the XP text */
 }
 
 .popup{
@@ -56,18 +119,19 @@ body {
 
 }
 
-
 h1 {
   padding: 30px;
   align-items: center;
   text-align:center;
   font-size: 40px;
+  color: #eef20d;
 }
 
 .navbar h1 {
-  color: yellow;
+  color: rgb(0, 255, 30);
   font-family: 'Gamja Flower', sans-serif;
   font-size: 35px;
+  text-transform: capitalize;
 }
 
 #game-container {
@@ -89,7 +153,6 @@ h1 {
   height: 300px; /* Set height*/
   animation: jump 1s ease-in-out forwards; /* Play jump animation for 1 second */
   animation-delay: 0.5s; /* Start jump animation after 0.5 seconds */
-  
 }
 
 @keyframes jump {
@@ -101,6 +164,41 @@ h1 {
   }
   100% {
       transform: translateY(0px);
+  }
+}
+
+#throwball {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  right: 20%;
+  bottom: 20%;
+  transition: all 0.5s ease-in-out; 
+  animation: bounce 7s ease-in;
+}
+
+#throwball img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+#throwball.clicked {
+  animation:forwards;
+  animation-direction: alternate-reverse;
+  cursor: pointer;
+  transform: rotate(90);
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-200px);
   }
 }
 
@@ -116,23 +214,25 @@ h1 {
   }
 }
 
-
 #pet-options,
 #action-buttons {
-  color: white;
+  color: rgb(255, 255, 255);
   text-align: center;
   /* margin-bottom: 20px; */
-  background-color: rgba(0, 0, 0, 0.562);
+  background-color: rgba(0, 0, 0, 0);
+  font-family: 'Finger Paint', sans-serif;
 }
+
 
 .action-button {
   margin: 5px;
   cursor: pointer;
   border-radius: 10px;
-  background-color: rgba(174, 255, 54, 0.903);
-  color: rgb(15, 15, 15);
+  background-color: rgb(246, 77, 4);
+  color: rgb(254, 247, 247);
   font-weight: bolder;
   padding: 10px 20px;
+  font-family: 'Finger Paint', sans-serif;
 }
 
 #health-stats {
@@ -140,28 +240,24 @@ h1 {
   align-items:end;
   font-size: 20px;
   font-weight: bold;
-  color: rgb(225, 255, 0); /* Make the health message red */
+  color: rgb(225, 255, 0); 
   margin-top: 0;
   position: relative;
   background-color: none;
 }
 
-/* Style for action buttons */
 .action-button {
   margin: 5px;
 }
-
 
 .game-end-image{
   display: flex;
   position:absolute;
   align-content: center;
   width: 100%;
-  height: 100%;
+  height:80%;
   background-color: rgba(246, 246, 246, 0);
 }
-
-
 
 #start-popup {
   display: flex;
@@ -180,9 +276,44 @@ h1 {
 
 #start-popup p {
   font-size: 24px;
-  font-family: 'Nabla', system-ui;
   font-family: 'Finger Paint', sans-serif;
   text-align: center;
   margin: 0;
 }
+/* Add this style to your existing CSS or in a new CSS file */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px; /* Adjust the width and height as needed */
+  height: 300px;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.993);
+  z-index: 1000;
+  background-color: rgb(251, 131, 12); /* Set background color if needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-over-image {
+  width: 100%; 
+  height: 100%;
+
+}
+
+.popup p {
+  color: black; /* Set text color if needed */
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+
+
+
+
+
 

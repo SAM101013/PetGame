@@ -37,12 +37,18 @@
       <div id="health-stats"></div>
   </div>
 </div>
+<!-- Attempting xp bar/ set to get 10 xp for feed & play fuctions -->
+<div id="xp-bar-container">
+  <div id="xp-bar"></div>
+  <div id="xp-text">XP: 0</div>
+</div>
+
 <h1>Animal Insync</h1>
 
 
 <div id="game-container">
     
-    <div id="health-status">Choose a pet to see their health!</div> 
+    <div id="health-status">Choose a pet to care for!</div> 
 <img id="selected-pet" class="pet-image" src="images/eggwarm.gif" alt="Selected Pet">
 
     <div id="pet-options">
@@ -50,28 +56,35 @@
 
 <select id="pet-dropdown" onchange="changePet()">
     <option value="" disabled selected>Select a pet</option>
-    <option value="dino1">Dino 1</option>
-    <option value="dino2">Dino 2</option>
-    <option value="dino3">Dino 3</option>
-    <option value="dino4">Dino 4</option>
+    <option value="dino1">Trev</option>
+    <option value="dino2">Star</option>
+    <option value="dino3">Brian</option>
+    <option value="dino4">Pia</option>
 
     
 </select>
 
-        <!-- Action buttons -->
+        
         <div id="action-buttons">
             <div id="action-buttons">
-            <button class="action-button" onclick="performAction('feed')">Feed</button>
-            <button class="action-button" onclick="performAction('drink')">Drink</button>
+            <button class="action-button" onclick=" updateHealthStatus('feed')">Feed</button>
+            <button class="action-button" onclick=" performAction('drink')">Drink</button>
             <button class="action-button" onclick="performAction('play')">Play</button>
             <button class="action-button" onclick="performAction('poop')">Poop</button>
             <button class="action-button" onclick="performAction('sleep')">Sleep</button>
-            <!-- <button class="action-button" onclick="performAction('warm up')">Warm Up</button> -->
+          
+<!-- Display area for the pet image
+<img id="petImage" src="" alt="Pet Image"> -->
 
 <!-- Health status will be displayed here -->
         </div>
     </div>
 </div>
+
+<div id="throwball">
+  <img src="ball.png" alt="Ball Image">
+</div>
+
 
     <script defer src="main.js"></script>
 </body>
